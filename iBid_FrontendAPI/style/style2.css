@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+}
+
+
+
+.carousel-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  background: #222;
+  margin: auto 0;
+  width: 25px !important;
+  color: #000 !important;
+  text-align: center;
+  opacity: 0.5;
+}
+.carousel-control-prev {
+  left: -30px !important;
+}
+.carousel-control-next {
+  right: -30px !important;
+}
+
+.box-shadow {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.05);
+}
+.img-full img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
