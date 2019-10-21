@@ -31,57 +31,61 @@
 
 
     <script src="jquery/jquery-3.3.1.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
+    <!-- <script> -->
 
-            $('form.login').on('submit', function (e) {
 
-                e.preventDefault();
+    <!-- 
+        // $(document).ready(function () {
 
-                username = $("#uname").val();
-                password = $("#pwd").val();
-                data = {
-                    "username": username,
-                    "password": password
-                }
+        //     $('form.login').on('submit', function (e) {
 
-                $.ajax({
-                    url: 'http://localhost:5500/profiles/login/',
-                    type: 'post',
-                    dataType: 'json',
-                    data: data,
-                    success: function (res, textStatus, xhr) {
+        //         e.preventDefault();
 
-                        localStorage.setItem('token', res.token);
-                        console.log(data);
-                        if (res.token != null) {
-                            if (username == "ashim7") {
-                                alert("Login Successful");
-                                location.href = "admin_dashboard.html";
-                                localStorage.setItem("admin", "admin");
-                            }
-                            else {
-                                alert("Login Successful");
+        //         username = $("#uname").val();
+        //         password = $("#pwd").val();
+        //         data = {
+        //             "username": username,
+        //             "password": password
+        //         }
 
-                                location.href = "userDashboard.html";
-                            }
-                        }
-                        else {
-                            alert("Invalid username or password");
-                        }
-                    },
-                    error: function (xhr, textStatus, errorThrown) {
-                        console.log('Error in Operation');
-                        console.log(xhr);
-                        alert("Invalid username or password.");
-                    }
-                });
-            });
-        });  
-    </script>
+        //         $.ajax({
+        //             url: 'http://localhost:5500/profiles/login/',
+        //             type: 'post',
+        //             dataType: 'json',
+        //             data: data,
+        //             success: function (res, textStatus, xhr) {
+
+        //                 localStorage.setItem('token', res.token);
+        //                 console.log(data);
+        //                 if (res.token != null) {
+        //                     if (username == "ashim7") {
+        //                         alert("Login Successful");
+        //                         location.href = "admin_dashboard.html";
+        //                         localStorage.setItem("admin", "admin");
+        //                     }
+        //                     else {
+        //                         alert("Login Successful");
+
+        //                         location.href = "userDashboard.html";
+        //                     }
+        //                 }
+        //                 else {
+        //                     alert("Invalid username or password");
+        //                 }
+        //             },
+        //             error: function (xhr, textStatus, errorThrown) {
+        //                 console.log('Error in Operation');
+        //                 console.log(xhr);
+        //                 alert("Invalid username or password.");
+        //             }
+        //         });
+        //     });
+        // });   -->
+    <!-- </script> -->
 
 </head>
 
@@ -137,8 +141,8 @@
                     </span>
 
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="username" id="uname" placeholder="Username" required
-                            tabindex="1">
+                        <input class="input100" type="text" name="username" id="username" placeholder="Username"
+                            required tabindex="1">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -146,8 +150,8 @@
                     </div>
 
                     <div class="wrap-input100">
-                        <input class="input100" type="password" name="password" id="pwd" placeholder="Password" required
-                            tabindex="2">
+                        <input class="input100" type="password" name="password" id="password" placeholder="Password"
+                            required tabindex="2">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -181,6 +185,7 @@
     </div>
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="js/user_login.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/bootstrap/js/popper.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

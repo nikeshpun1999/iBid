@@ -5,16 +5,16 @@ const auctionSchema = mongoose.Schema({
     title: {
         type: String
     },
-    sellerName: {
+    shippingCost: {
         type: String
     },
-    sellerReview: {
+    sellerName: {
         type: String
     },
     country: {
         type: String
     },
-    period: {
+    year: {
         type: String
     },
     condition: {
@@ -32,6 +32,18 @@ const auctionSchema = mongoose.Schema({
     },
 
     deliveryDate: {
+        type: Date
+    },
+    auctionImgName: {
+        type: String
+    },
+    auctionLock: {
+        type: Date
+    },
+    userId: {
+        type: String
+    },
+    progress: {
         type: String
     }
 });

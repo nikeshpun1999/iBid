@@ -10,18 +10,22 @@ const multer = require("multer");
 
 router.post("/registerprofile", (req, res) => {
     const user = new Profile({
-        Fname: req.body.firstname,
-        Mname: req.body.middlename,
-        Lname: req.body.lastname,
-        Username: req.body.username,
-        Password: req.body.password,
-        Aboutme: req.body.about,
+        firstname: req.body.firstname,
+        middlename: req.body.middlename,
+        lastname: req.body.lastname,
+        username: req.body.username,
+        password: req.body.password,
+        about: req.body.about,
         Contact: req.body.Contact,
-        DOB: req.body.dob,
-        Gender: req.body.gender,
-        Badges: req.body.badges,
-        Email: req.body.email,
-        Profilepic: "default.jpg"
+        dob: req.body.dob,
+        address: req.body.address,
+        gender: req.body.gender,
+        Badge1: 0,
+        Badge2: 0,
+        Badge3: 0,
+        email: req.body.email,
+        profilepic: "default.jpg",
+        userType: "user"
     })
     user.save()
         .then(result => {
@@ -44,24 +48,15 @@ router.post("/login", async function (req, res) {
     console.log(enteredUname, enteredpass);
     const user = await Profile.checkCredentialsDb(enteredUname, enteredpass);
     if (user) {
-        // const token = await Profile.generateAuthToken();
+        const token = await user.generateAuthToken();
+        console.log(token);
         res.status(201).json({
-            // token: token,
-            user: Profile,
-            Fname: Profile.firstname,
-            Mname: Profile.middlename,
-            Lname: Profile.lastname,
-            Username: Profile.username,
-            Password: Profile.password,
-            Aboutme: Profile.about,
-            Contact: Profile.Contact,
-            DOB: Profile.dob,
-            Gender: Profile.gender,
-            Badges: Profile.badges,
-            Email: Profile.email,
-            Profilepic: Profile.profilepic
+            token: token,
+            _id: user._id,
+            user: user
 
         });
+
     }
     else {
         res.json({ message: "Invalid Login" });
@@ -69,5 +64,11 @@ router.post("/login", async function (req, res) {
 
 
 
+
+})
+
+router.get('/this', Auth, function (req, res) {
+    res.send(req.user);
+    console.log(req.user);
 })
 module.exports = router;

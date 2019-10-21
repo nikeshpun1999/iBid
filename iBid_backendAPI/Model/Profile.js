@@ -2,41 +2,53 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 
 const userSchema = mongoose.Schema({
-    Fname: {
+    firstname: {
         type: String
     },
-    Mname: {
+    middlename: {
         type: String
     },
-    Lname: {
+    lastname: {
         type: String
     },
-    Username: {
+    username: {
         type: String
     },
-    Password: {
+    password: {
         type: String
     },
-    Aboutme: {
+    userType: {
+        type: String
+    },
+    about: {
+        type: String
+    },
+    address: {
         type: String
     },
     Contact: {
         type: Number
     },
 
-    DOB: {
+    dob: {
         type: Date
     },
-    Gender: {
+    gender: {
         type: String
     },
-    Badges: {
+    Badge1: {
+        type: Number
+    },
+    Badge2: {
+        type: Number
+    },
+    Badge3: {
+        type: Number
+    },
+    email: {
         type: String
     },
-    Email: {
-        type: String
-    },
-    ProfilePic: {
+    profilepic: {
         type: String
     },
 
@@ -50,7 +62,7 @@ const userSchema = mongoose.Schema({
 
 userSchema.statics.checkCredentialsDb = async (username, password) => {
 
-    const user1 = await Profile.findOne({ Username: username, Password: password })
+    const user1 = await Profile.findOne({ username: username, password: password })
     return user1;
 
 }
@@ -59,12 +71,12 @@ userSchema.methods.generateAuthToken = async function () {
 
     console.log("token");
 
-    const Profile = this
-    const token = jwt.sign({ _id: Profile._id.toString() }, 'tokens')
+    const user = this
+    const token = jwt.sign({ _id: user._id.toString() }, 'tokens')
 
     console.log(token);
-    Profile.tokens = Profile.tokens.concat({ token: token })
-    await Profile.save()
+    user.tokens = user.tokens.concat({ token: token })
+    await user.save()
     return token
 }
 

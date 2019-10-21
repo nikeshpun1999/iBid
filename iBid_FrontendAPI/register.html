@@ -31,57 +31,62 @@
 
 
     <script src="jquery/jquery-3.3.1.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-    <script>
+
+    <!-- <script>
         $(document).ready(function () {
-
-            $('form.register').on('submit', function (e) {
-
+            $('#register').click(function (e) {
                 e.preventDefault();
+                var firstname = $("#fname").val();
+                var middlename = $("#mdlname").val();
+                var lastname = $("#lname").val();
+                var about = $("#about").val();
+                var gender = $("input[name='gender']:checked").val();
+                var Contact = $("#Contact").val();
+                var email = $("#email").val();
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var address = $("#address").val();
+                var dob = $("#dob").val();
 
-                username = $("#uname").val();
-                password = $("#pwd").val();
-                data = {
+                console.log(firstname);
+                //alert(password)
+                var data = {
+                    "firstname": firstname,
+                    "middlename": middlename,
+                    "lastname": lastname,
+                    "gender": gender,
+                    "about": about,
+                    "Contact": Contact,
+                    "email": email,
                     "username": username,
-                    "password": password
-                }
+                    "password": password,
+                    "address": address,
 
+                    "dob": dob
+                };
                 $.ajax({
-                    url: 'http://localhost:1212/login/',
                     type: 'post',
-                    dataType: 'json',
+                    url: 'http://localhost:5500/profiles/registerprofile',
                     data: data,
                     success: function (res, textStatus, xhr) {
-
-                        localStorage.setItem('token', res.token);
-                        console.log(data);
-                        if (res.token != null) {
-                            if (username == "ashim7") {
-                                alert("Login Successful");
-                                location.href = "admin_dashboard.html";
-                                localStorage.setItem("admin", "admin");
-                            }
-                            else {
-                                alert("Login Successful");
-
-                                location.href = "index.html";
-                            }
-                        }
-                        else {
-                            alert("Invalid username or password");
-                        }
+                        alert("Registered Successfully");
+                        location.href = "login.html";
+                        console.log('abc');
                     },
                     error: function (xhr, textStatus, errorThrown) {
+                        alert(errorThrown);
                         console.log('Error in Operation');
-                        console.log(xhr);
-                        alert("Invalid username or password.");
                     }
                 });
             });
-        });  
-    </script>
+            //var tok = localStorage.getItem('token');
+            //alert(tok)		
+        }); 
+    </script> -->
 
 </head>
 
@@ -221,8 +226,8 @@
                     </div>
 
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="username" id="uname" placeholder="Username" required
-                            tabindex="12">
+                        <input class="input100" type="text" name="username" id="username" placeholder="Username"
+                            required tabindex="12">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -230,8 +235,8 @@
                     </div>
 
                     <div class="wrap-input100">
-                        <input class="input100" type="password" name="password" id="pwd" placeholder="Password" required
-                            tabindex="13">
+                        <input class="input100" type="password" name="password" id="password" placeholder="Password"
+                            required tabindex="13">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -250,7 +255,7 @@
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" id="login" name="login" tabindex="3">
+                        <button class="login100-form-btn" id="register" name="login" tabindex="3">
                             Register
                         </button>
                     </div>
@@ -267,6 +272,7 @@
     </div>
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="js/user_register.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/bootstrap/js/popper.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

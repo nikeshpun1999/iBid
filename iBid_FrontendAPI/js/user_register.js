@@ -1,15 +1,17 @@
 $(document).ready(function () {
     $('#RegisterUser').click(function (e) {
         e.preventDefault();
-        var firstname = $("#firstname").val();
-        var middlename = $("#middlename").val();
-        var lastname = $("#lastname").val();
+        var firstname = $("#fname").val();
+        var middlename = $("#mdlname").val();
+        var lastname = $("#lname").val();
         var about = $("#about").val();
         var gender = $("input[name='gender']:checked").val();
         var Contact = $("#Contact").val();
         var email = $("#email").val();
         var username = $("#username").val();
         var password = $("#password").val();
+        var address = $("#address").val();
+        var dob = $("#dob").val();
         //alert(password)
         var data = {
             "firstname": firstname,
@@ -20,7 +22,10 @@ $(document).ready(function () {
             "Contact": Contact,
             "email": email,
             "username": username,
-            "password": password
+            "password": password,
+            "address": address,
+            "userType": "user",
+            "dob": dob
         };
         $.ajax({
             type: 'post',

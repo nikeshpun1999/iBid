@@ -1,38 +1,39 @@
-$(document).ready(function () {  	
-			$('#loginUser').click(function (e) {  
-			e.preventDefault();
-			   var Email = $("#Email").val();
-			   var Password = $("#Password").val();
-			   //alert(password)
-			   var data = {
-			   "Email" : Email,
-			   "Password" : Password
-			   }	   
-				$.ajax({  
-					type: 'post', 
-					url: 'http://localhost:5500/userLogin',  
-					data:data,  
-					success: function (res, textStatus, xhr) {  
-						if(res.token!=null)
-						{
-							localStorage.setItem("token",res.token)
-							alert("Logged in Successfully")
-							if(res.user.usertype=="Admin"){
-								location.href="admin/index.html";
-							}
-							else{
-								location.href="user/home.html";
-							}
+$(document).ready(function () {
+	$('#login').click(function (e) {
+		e.preventDefault();
+		var username = $("#username").val();
+		var Password = $("#password").val();
+		//alert(password)
+		var data = {
+			"username": username,
+			"password": Password
+		}
+		alert("clicked");
+		$.ajax({
+			type: 'post',
+			url: 'http://localhost:5500/profiles/login',
+			data: data,
+			success: function (res, textStatus, xhr) {
+				alert(res.token);
+				if (res.token != null) {
+					localStorage.setItem("token", res.token)
+					alert("Logged in Successfully")
+					if (res.user.userype == "Admin") {
+						location.href = "admin/index.html";
+					}
+					else {
+						location.href = "user/home.html";
+					}
 
-						}						 
-					},  
-					error: function (xhr, textStatus, errorThrown) {  
-						console.log('Error in Operation');  
-							alert("Login denied");
-						
-					}  
-				});  
-			}); 
-//var tok = localStorage.getItem('token');
-//alert(tok)		
-		});  
+				}
+			},
+			error: function (xhr, textStatus, errorThrown) {
+				console.log('Error in Operation');
+				alert("Login denied");
+
+			}
+		});
+	});
+	//var tok = localStorage.getItem('token');
+	//alert(tok)		
+});
