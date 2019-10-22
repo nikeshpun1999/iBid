@@ -1,0 +1,18 @@
+{
+  "name": "cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cucumber.js",
+  "dependencies": {
+    "cucumber": "^5.1.0",
+    "mvn": "^3.5.0",
+    "selenium-webdriver": "^4.0.0-alpha.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

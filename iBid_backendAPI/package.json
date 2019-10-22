@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/nikeshpun1999/iBid_backendAPI/issues"
   },
-  "homepage": "https://github.com/nikeshpun1999/iBid_backendAPI#readme"
+  "homepage": "https://github.com/nikeshpun1999/iBid_backendAPI#readme",
+  "dependencies": {
+    "cucumber": "file:cucumber",
+    "mongoose": "^5.7.5"
+  }
 }
