@@ -15,24 +15,24 @@ $(document).ready(function () {
     });
 
 
-    // $('#showUser').on('click', '#delete', function () {
-    //     alert("Successfully deleted!!")
-    //     location.href = 'userDetail.html';
-    //     id = $(this).val();
-    //     //alert(id);
-    //     $.ajax({
-    //         url: 'http://localhost:3000/delete-user/' + id,
-    //         type: 'DELETE',
-    //         dataType: 'json',
-    //         data: id,
-    //         success: function (data, textStatus, xhr) {
-    //             console.log(data);
-    //         },
-    //         error: function (xhr, textStatus, errorThrown) {
-    //             console.log('Error in Operation');
-    //         }
-    //     });
-    // });
+    $('#showUser').on('click', '#delete', function () {
+        alert("Successfully deleted!!")
+        location.href = 'userDetail.html';
+        id = $(this).val();
+        //alert(id);
+        $.ajax({
+            url: 'http://localhost:5500/profiles/delete-user/' + id,
+            type: 'DELETE',
+            dataType: 'json',
+            data: id,
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+    });
     /// Loging out
     // $("#logout").click(function () {
     //     $.ajax({
