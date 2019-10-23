@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <title>Update Profile</title>
+    <link href="/style/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="style/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="style/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+    <link href="style/style2.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Chilanka|Pacifico|Saira+Stencil+One&display=swap"
+        rel="stylesheet">
+    <script src="/jquery/jquery-3.3.1.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <script>
+        $(document).ready(function () {
+            var tok = localStorage.getItem('token');
+            var id = localStorage.getItem('uid');
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:1212/getSpecificUser",
+                beforeSend: function (xhr) {
+                    if (tok) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+                    }
+                },
+                success: function (data) {
+                    $('#showProfile').append(
+                        '<form>' +
+                        '<div class="row">' +
+                        '<div class="col-md-10">' +
+                        '<div class="profile-head">' +
+                        '<h5>' + data.first_name + " " + data.last_name + '</h5>' +
+                        '<ul class="nav nav-tabs" id="myTab" role="tablist">' +
+                        '<li class="nav-item">' +
+                        '<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab aria-controls="home" aria-selected="true">About</a>' +
+                        '</li>' +
+                        '</ul >' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-md-2">' +
+                        '<p><a href="profile.html">Edit Profile</a></p>' +
+                        '<p><a href="changePassword.html">Change Password</a></p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-8">' +
+                        '<div class="tab-content profile-tab" id="myTabContent">' +
+                        '<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>First Name</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.first_name + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Middle Name</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.middle_name + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Last Name</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.last_name + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Gender</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.gender + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Contact Details</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.contact_details + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Address</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.address + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Date Of Birth</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + new Date(data.dob).toISOString().split('T')[0] + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Email</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.email + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>About Me</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.aboutMe + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Username</label>' +
+                        '</div>' +
+                        '<div class="col-md-6">' +
+                        '<p>' + data.username + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</form>'
+                    );
+                }
+            })
+        });  
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid myheader">
+        <div class="row">
+            <div class="col-12 d-md-block d-none m-auto"
+                style="display:table-cell; vertical-align:middle; text-align:center">
+                <img src="images/iBid_logo.png" alt="">
+            </div>
+            <div class="col-md-12 welcome text-center mt-5">
+                <h2 class="display-5" style="color: #FD4713;font-family: 'Righteous', cursive;"> START&nbsp;
+                    BIDDING&nbsp; NOW</h2>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-light mynavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content"
+            aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.php">
+            <img src="images/iBid_logo.png" alt="logo" style="width:80px;">
+        </a>
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="nav-content">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="index.html"><b>Home</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="userprofile.html"><b>Profile</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="aboutUs.html"><b>About Us</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container emp-profile" id="showProfile">
+
+    </div>
+</body>
+<footer>
+    <div class="container-fluid footer bg-dark mt-1">
+        <div class="row">
+            <div class="col-md-4 mt-4">
+                <p class="lead display-5" style="
+                        color:#9053c7;font-family: 'Saira Stencil One', cursive"><i class="fas fa-map-marker-alt"></i>
+                    <b>Naxal road,
+                        Kathmandu</b></p>
+                <p>
+                    &copy; iBid 2019. All rights reserved.
+                </p>
+            </div>
+            <div class="col-md-4 mt-4">
+                <p class="lead display-5" style="
+                        color:#9053c7;font-family: 'Saira Stencil One', cursive"><span><b> CONTACT US : </b></span></p>
+                <p style="
+                        color:#9053c7;"> EMAIL: <i class="fas fa-envelope"></i> <a class="text-light"
+                        href="mailto:iBid9876@gmail.com">iBid9876@gmail.com</a> </p>
+                <p style="
+                        color:#9053c7;"> PHONE NO : <i class="fas fa-phone"></i> <a class="text-light"
+                        href="tel: 0143354328">01-43354328</a>
+                    <p>
+            </div>
+            <div class="col-md-4 mt-4">
+                <p class="lead display-5" style="
+                        color:#9053c7;font-family: 'Saira Stencil One', cursive"><b> VISIT US : </b></p>
+                <p><a href="https://www.facebook.com/"><img src="images/icon-facebook.png" alt="fb" class="fb"></a>
+                    <span><a href="https://www.twitter.com/"><img src="images/icon-twitter.png" alt="twitter"
+                                class="twitter ml-3"></a></span>
+                    <span><a href="https://plus.google.com/"><img src="images/icon-googleplus.png" alt="googleplus"
+                                class="googleplus ml-3"></a></span>
+                    <span><a href="https://www.pinterest.com/"><img src="images/icon-pinterest.png" alt="pininterest"
+                                class="pininterest ml-3"></a></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

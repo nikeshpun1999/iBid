@@ -33,56 +33,6 @@
     <script src="jquery/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-
-            $('form.register').on('submit', function (e) {
-
-                e.preventDefault();
-
-                username = $("#uname").val();
-                password = $("#pwd").val();
-                data = {
-                    "username": username,
-                    "password": password
-                }
-
-                $.ajax({
-                    url: 'http://localhost:1212/login/',
-                    type: 'post',
-                    dataType: 'json',
-                    data: data,
-                    success: function (res, textStatus, xhr) {
-
-                        localStorage.setItem('token', res.token);
-                        console.log(data);
-                        if (res.token != null) {
-                            if (username == "ashim7") {
-                                alert("Login Successful");
-                                location.href = "admin_dashboard.html";
-                                localStorage.setItem("admin", "admin");
-                            }
-                            else {
-                                alert("Login Successful");
-
-                                location.href = "index.html";
-                            }
-                        }
-                        else {
-                            alert("Invalid username or password");
-                        }
-                    },
-                    error: function (xhr, textStatus, errorThrown) {
-                        console.log('Error in Operation');
-                        console.log(xhr);
-                        alert("Invalid username or password.");
-                    }
-                });
-            });
-        });  
-    </script>
-
 </head>
 
 <body>
