@@ -1,6 +1,9 @@
 $(document).ready(function () {
+
     let imageFile = '';
     $("#auctionImgname").on('change', function () {
+
+        alert("hello");
         let formData = new FormData();
         let files = $("#auctionImgname").get(0).files;
         if (files.length > 0) {

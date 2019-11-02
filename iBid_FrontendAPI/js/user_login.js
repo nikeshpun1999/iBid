@@ -8,7 +8,7 @@ $(document).ready(function () {
 			"username": username,
 			"password": Password
 		}
-		alert("clicked");
+		//alert("clicked");
 		$.ajax({
 			type: 'post',
 			url: 'http://localhost:5500/profiles/login',
@@ -19,10 +19,10 @@ $(document).ready(function () {
 					localStorage.setItem("token", res.token)
 					alert("Logged in Successfully")
 					if (res.user.userype == "Admin") {
-						location.href = "admin/index.html";
+						location.href = "admin_dashboard.html";
 					}
 					else {
-						location.href = "user/home.html";
+						location.href = "index.html";
 					}
 
 				}

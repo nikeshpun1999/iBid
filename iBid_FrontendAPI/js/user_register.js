@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#RegisterUser').click(function (e) {
+        alert("hello")
         e.preventDefault();
         var firstname = $("#fname").val();
         var middlename = $("#mdlname").val();
