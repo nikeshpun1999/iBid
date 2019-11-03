@@ -1,34 +1,34 @@
 const express = require("express");
 const router = express.Router();
-const Comnt = require("../Model/comment");
+const Bid = require("../Model/bidding");
 
 
 
-router.post('/postcomment', (req, res) => {
+router.post('/bidonauction', (req, res) => {
 
     console.log("postlike entered");
     //var response = "Nothing";
 
     var auctionid = req.body.auctionID;
     var userid = req.body.userId;
-    var comment = req.body.comment;
-    var rate = req.body.rate;
+    var bidamount = req.body.bidamount;
 
 
 
-    var newpostcomment = new Comnt(
+
+    var newpostcomment = new Bid(
         {
             'auctionID': auctionid,
 
             'userId': userid,
-            'rate': rate,
-            'comment': comment
+            'bidamount': bidamount,
+
         }
     );
     console.log("REQUEST-->" + newpostcomment);
 
     newpostcomment.save().then(function () {
-        response = "You left a review and comment on the post"
+        response = "You took part in the bid"
         console.log(response);
         res.json(response);
     }).catch(function (e) {
@@ -38,17 +38,6 @@ router.post('/postcomment', (req, res) => {
     })
 
 })
-
-router.get('/getselectedauctionrate/:id', function (req, res) {
-    uid = req.params.id.toString();
-    Comnt.find({ auctionID: uid }).then(function (recipe) {
-        res.send(recipe);
-        console.log(recipe)
-    }).catch(function (e) {
-        res.send(e)
-    });
-});
-
 
 
 module.exports = router;

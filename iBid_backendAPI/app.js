@@ -15,11 +15,13 @@ const profileRoute = require('./Routes/profile');
 const auctionRoute = require('./Routes/auction');
 const likeRoutes = require('./Routes/likeRoute');
 const commentRoute = require('./Routes/comment');
+const auctionbidRoute = require('./Routes/auctionbidding');
 
 
 app.use('/comments', commentRoute);
 app.use('/likes', likeRoutes);
 app.use('/profiles', profileRoute);
 app.use('/auctions', auctionRoute);
+app.use('/bids', auctionbidRoute);
 
 module.exports = app;

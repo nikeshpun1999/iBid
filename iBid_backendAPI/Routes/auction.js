@@ -51,10 +51,10 @@ router.post("/registerauction", (req, res) => {
         'country': country,
         'year': year,
         'type': type,
-        'condition': condition
-        //auctionIssuetime: currenttime,
-        //auctionEndtime: currenttime + 4,
-        //deliveryDate: currenttime + 11,
+        'condition': condition,
+        auctionIssuetime: currenttime,
+        auctionEndtime: currenttime + 4,
+        deliveryDate: currenttime + 11,
         //userId: req.body.userId,
         // auctionissuetime: req.body.auctionissuetime,
         // auctionendtime: req.body.auctionendtime,
@@ -79,7 +79,8 @@ router.post("/registerauction", (req, res) => {
 
 router.get("/latest", function (req, res) {
     Auction.find()
-        .sort({ _id: -1 }).limit(8)
+        .slice(3)
+        .sort({ _id: -1 }).limit(4)
         .exec()
         .then(function (auction) {
             res.send(auction);
@@ -104,6 +105,15 @@ router.get("/latest2", function (req, res) {
 router.get('/getselectedauction/:id', function (req, res) {
     uid = req.params.id.toString();
     Auction.findById(uid).then(function (auction) {
+        res.send(auction);
+    }).catch(function (e) {
+        res.send(e)
+    });
+});
+
+router.get('/getsimilarauction/:id', function (req, res) {
+    uid = req.params.id.toString();
+    Auction.find({ "type": uid }).then(function (auction) {
         res.send(auction);
     }).catch(function (e) {
         res.send(e)

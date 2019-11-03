@@ -3,13 +3,16 @@ $(document).ready(function () {
         $.each(res, function (index) {
             $('#showUser').append('<tr>' +
                 '<td> ' + res[index].firstname + '</td>' + '<td> ' + res[index].middlename +
-                '</td>' + "<td>" + res[index].lastname + "</td>" + "<td>" + res[index].dob + "</td>"
-                + "<td>" + res[index].about + "</td>" + "<td>" + res[index].email + "</td>"
+                '</td>' + "<td>" + res[index].lastname + "</td>" + "<td>" + res[index].credit + "</td>"
+                + "<td>" + res[index].address + "</td>" + "<td>" + res[index].email + "</td>"
                 + "<td>" + res[index].gender + "</td>" + "<td>" + res[index].username + "</td>"
-                + '<td>' + '<img src="http://localhost:5500/profiles/imageProfile/' + res[index].profilepic + '" width="150" height="100">' + '</td>'
-
-                + '<td><button id="delete" class="btn btn-lg btn-primary" value="' + res[index]._id
+                + '<td>' + '<img src="http://localhost:5500/images/' + res[index].profilepic + '" width="150" height="100">' + '</td>'
+                + '<td>'
+                + '<button class="btn btn-primary" value=' + res[index]._id + ' id="credit" type="submit">Add 500 credit</a>'
+                + '</td>' + '</tr>'
+                + '<td><button id="delete" type="submit" class="btn btn-lg btn-primary" value="' + res[index]._id
                 + '">Delete</button></td>' + '</tr>');
+
         });
 
     });
@@ -33,43 +36,28 @@ $(document).ready(function () {
             }
         });
     });
-    /// Loging out
-    // $("#logout").click(function () {
-    //     $.ajax({
-    //         type: 'post',
-    //         url: 'http://localhost:3000/users/logout',
-    //         beforeSend: function (xhr) {
-    //             if (tok) {
-    //                 xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
-    //             }
-    //         },
-    //         success: function (data) {
-    //             location.href = "../login.html";
 
-    //         },
+    $('#showUser').on('click', '#credit', function () {
 
-    //         error: function () {
-    //             location.href = "../login.html";
-    //         }
-    //     });
-    // });
+        id = $(this).val();
 
-    /// user session creation
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'http://localhost:3000/users/me',
-    //     beforeSend: function (xhr) {
-    //         if (tok) {
-    //             xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
-    //         }
-    //     },
-    //     success: function (user) {
-    //         $('#username').append('<div class="text-bold text-success p-2"' + '<li>' + 'Mr.' + user.firstname + '</li>' + '</div>');
-    //     },
-    //     error: function () {
-    //         alert("Sorry, you are not logged in.");
-    //         location.href = "../login.html";
-    //     }
-    // });
+
+
+        $.ajax({
+            url: 'http://localhost:5500/profiles/addcredit/' + id,
+            type: 'POST',
+            success: function (res, textStatus, xhr) {
+                console.log(res);
+                alert("Credit Added");
+                location.href = "bidders.html";
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+
+            }
+        });
+    });
 
 });

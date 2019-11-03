@@ -25,7 +25,8 @@ router.post("/registerprofile", (req, res) => {
         Badge3: 0,
         email: req.body.email,
         profilepic: "default.jpg",
-        userType: "user"
+        userType: "user",
+        credit: 0
     })
     user.save()
         .then(result => {
@@ -79,9 +80,33 @@ router.get('/getUserForAdmin', function (req, res) {
     });
 });
 
+router.post('/addcredit/:id', function (req, res) {
+    uid = req.params.id.toString();
+    console.log("here")
+    console.log(uid);
+
+    Profile.findByIdAndUpdate(uid, { $set: { "credit": +500 } }, { new: true })
+        .then(function (user) {
+            res.json(user);
+        })
+        .catch(function (e) {
+            res.send(e);
+        })
+})
+
 router.delete('/delete-user/:id', function (req, res) {
     Profile.findByIdAndDelete(req.params.id).then(function () {
     }).catch(function () {
     })
+});
+
+router.get('/getuserdata/:id', function (req, res) {
+    uid = req.params.id.toString();
+    console.log(uid);
+    Profile.findById(uid).then(function (user) {
+        res.json(user);
+    }).catch(function (e) {
+        res.send(e)
+    });
 });
 module.exports = router;

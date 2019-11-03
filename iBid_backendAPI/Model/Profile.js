@@ -51,6 +51,9 @@ const userSchema = mongoose.Schema({
     profilepic: {
         type: String
     },
+    credit: {
+        type: Number
+    },
 
     tokens: [{
         token: {

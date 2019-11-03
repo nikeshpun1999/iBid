@@ -12,6 +12,9 @@ const commentSchema = mongoose.Schema({
 
     comment: {
         type: String
+    },
+    rate: {
+        type: Number
     }
 
 });

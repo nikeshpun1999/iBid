@@ -5,8 +5,8 @@ const Like = require("../Model/like");
 
 
 router.post("/postlike", (req, res) => {
-    const auctionID = req.body.auctionid;
-    const userID = req.body.userid;
+    const auctionID = req.body.auctionID;
+    const userID = req.body.userId;
 
     Like.findOneAndRemove({ "auctionId": auctionID, "userId": userID }).then((ok) => {
 
@@ -38,8 +38,8 @@ router.post("/postlike", (req, res) => {
 
 router.post("/postunlike", (req, res) => {
 
-    const auctionID = req.body.auctionid;
-    const userID = req.body.userid;
+    const auctionID = req.body.auctionID;
+    const userID = req.body.userId;
     Like.findOneAndRemove({ "auctionId": auctionID, "userId": userID }).then((ok) => {
 
         console.log(ok)
@@ -68,16 +68,37 @@ router.post("/postunlike", (req, res) => {
 
 })
 
-router.get("/mostlikedauction", function (req, res) {
-    Like.find()
-        .sort({ _id: 1 })
-        .exec()
-        .then(function (auction) {
-            res.send(auction);
-        })
-        .catch(function (e) {
-            res.send(e);
-        })
+router.get('/likecount/:id', (req, res) => {
+    Aucid = req.params.id.toString();
+    console.log(Aucid);
+    console.log("likecount entered");
+    Like.countDocuments({ "auctionId": Aucid, "like": '1' }).then(function (likecount) {
+        console.log(likecount);
+        res.json(likecount);
+
+    }).catch(function (e) {
+        res.send(e)
+    });
+
+
+
+
+})
+router.get('/unlikecount/:id', (req, res) => {
+    Aucid = req.params.id.toString();
+    console.log(Aucid);
+    console.log("unlikecount entered");
+    Like.countDocuments({ "auctionId": Aucid, "like": '0' }).then(function (unlikecount) {
+        console.log(unlikecount);
+        res.json(unlikecount);
+
+    }).catch(function (e) {
+        res.send(e)
+    });
+
+
+
+
 })
 
 
