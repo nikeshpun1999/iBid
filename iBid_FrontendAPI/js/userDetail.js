@@ -2,11 +2,11 @@ $(document).ready(function () {
     $.getJSON('http://localhost:5500/profiles/getUserForAdmin', function (res) {
         $.each(res, function (index) {
             $('#showUser').append('<tr>' +
-                '<td> ' + res[index].Fname + '</td>' + '<td> ' + res[index].Mname +
-                '</td>' + "<td>" + res[index].Lname + "</td>" + "<td>" + res[index].Contact + "</td>"
-                + "<td>" + res[index].Aboutme + "</td>" + "<td>" + res[index].Email + "</td>"
-                + "<td>" + res[index].Gender + "</td>" + "<td>" + res[index].Username + "</td>"
-                + '<td>' + '<img src="http://localhost:5500/profiles/imageProfile/' + res[index].profilePicture + '" width="150" height="100">' + '</td>'
+                '<td> ' + res[index].firstname + '</td>' + '<td> ' + res[index].middlename +
+                '</td>' + "<td>" + res[index].lastname + "</td>" + "<td>" + res[index].dob + "</td>"
+                + "<td>" + res[index].about + "</td>" + "<td>" + res[index].email + "</td>"
+                + "<td>" + res[index].gender + "</td>" + "<td>" + res[index].username + "</td>"
+                + '<td>' + '<img src="http://localhost:5500/profiles/imageProfile/' + res[index].profilepic + '" width="150" height="100">' + '</td>'
 
                 + '<td><button id="delete" class="btn btn-lg btn-primary" value="' + res[index]._id
                 + '">Delete</button></td>' + '</tr>');
@@ -15,24 +15,24 @@ $(document).ready(function () {
     });
 
 
-    // $('#showUser').on('click', '#delete', function () {
-    //     alert("Successfully deleted!!")
-    //     location.href = 'userDetail.html';
-    //     id = $(this).val();
-    //     //alert(id);
-    //     $.ajax({
-    //         url: 'http://localhost:3000/delete-user/' + id,
-    //         type: 'DELETE',
-    //         dataType: 'json',
-    //         data: id,
-    //         success: function (data, textStatus, xhr) {
-    //             console.log(data);
-    //         },
-    //         error: function (xhr, textStatus, errorThrown) {
-    //             console.log('Error in Operation');
-    //         }
-    //     });
-    // });
+    $('#showUser').on('click', '#delete', function () {
+        alert("Successfully deleted!!")
+        location.href = 'bidders.html';
+        id = $(this).val();
+        //alert(id);
+        $.ajax({
+            url: 'http://localhost:5500/profiles/delete-user/' + id,
+            type: 'DELETE',
+            dataType: 'json',
+            data: id,
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+    });
     /// Loging out
     // $("#logout").click(function () {
     //     $.ajax({

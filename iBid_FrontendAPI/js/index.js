@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var tok = localStorage.getItem("token");
-
+    alert(tok);
 
     $.ajax({
         type: "GET",
@@ -26,8 +26,8 @@ $(document).ready(function () {
                 data2 += '</figure ><div class="py-1 px-2">';
                 data2 += '<h5 class="text-center">' + res[index].title + '</h5>';
                 data2 += '<div class="d-flex justify-content-between">';
-                data2 += '<span>Condition: <b>' + res[index].condition + '</b></span></div><p><div class="d-flex justify-content-between"><span>Type:<b>' + res[index].type + '</b></span></div></p></div ><p><button class="btn btn-danger" id="join" name="updateProfile" tabindex="13">';
-                data2 += ' Join Bid <i class="fas fa-sign-in-alt"></i></button>';
+                data2 += '<span>Condition: <b>' + res[index].condition + '</b></span></div><p><div class="d-flex justify-content-between"><span>Type:<b>' + res[index].type + '</b></span></div></p></div ><p>';
+                data2 += '<a href="auction_product_page.html?id=' + res[index]._id + '" class="btn btn-primary">Join Bid </a>';
                 data2 += '</p></div ></div ></div>';
 
 
@@ -72,9 +72,9 @@ $(document).ready(function () {
             console.log(res)
 
             var data3 = "";
-            var index1 = 3;
+            var index1 = 4;
             $.each(res, function (index) {
-                index1 = index1 + 1;
+
 
 
 
@@ -86,8 +86,8 @@ $(document).ready(function () {
                 data3 += '</figure ><div class="py-1 px-2">';
                 data3 += '<h5 class="text-center">' + res[index1].title + '</h5>';
                 data3 += '<div class="d-flex justify-content-between">';
-                data3 += '<span>Condition: <b>' + res[index1].condition + '</b></span></div><p><div class="d-flex justify-content-between"><span>Type:<b>' + res[index1].type + '</b></span></div></p></div ><p><button class="btn btn-danger" id="join" name="updateProfile" tabindex="13">';
-                data3 += ' Join Bid <i class="fas fa-sign-in-alt"></i></button>';
+                data3 += '<span>Condition: <b>' + res[index1].condition + '</b></span></div><p><div class="d-flex justify-content-between"><span>Type:<b>' + res[index1].type + '</b></span></div></p></div >';
+                data3 += ' <a href="auction_product_page.html?id=' + res[index]._id + '" class="btn btn-primary">Join Bid </a>';
                 data3 += '</p></div ></div ></div>';
 
 
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
                 // console.log(res[index].RecipeImgName)
                 // console.log(res);
-                console.log(res[index].type);
+                console.log(res[index1].type);
 
                 $('#latestauc2').html(data3);
 

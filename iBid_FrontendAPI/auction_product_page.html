@@ -32,6 +32,7 @@
 
 
     <script src="jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/single_product.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
@@ -81,12 +82,11 @@
             <div class="col-md-6">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active"> <img class="d-block w-100"
-                                src="images/ancient_nepali_coin.jpg" alt="First slide">
+                        <div class="carousel-item active"> <img class="d-block w-100" id="showImage" alt="First slide">
                         </div>
-                        <div class="carousel-item"> <img class="d-block w-100" src="images/antique_telephone.jpg"
+                        <!-- <div class="carousel-item"> <img class="d-block w-100" src="images/antique_telephone.jpg"
                                 alt="Second slide">
-                        </div>
+                        </div> -->
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
@@ -99,10 +99,12 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <h2>Party Flared Sleeve Top</h2>
+                    <h2 id="title"></h2>
                 </div>
                 <div class="row">
-                    <h1><i class="fa fa-inr" aria-hidden="true"></i> 599</h1>
+                    <i class="fa fa-inr" aria-hidden="true">
+                        <h1 id="cost"></h1>
+                    </i>
                     &nbsp; &nbsp;
 
                 </div>
@@ -116,14 +118,15 @@
 
                 </div>
                 <div class="row mt-4">
-                    <h3 class="text-info"><i class="fa fa-map-marker" aria-hidden="true"></i></h3>
-                    <p style="font-size: 20px"> &nbsp; Delivery by23 Jul, Tuesday
+                    <h3 class="text-info"><i class="fa fa-map-marker" aria-hidden="true"></i></h3>&nbsp;
+                    <p style="font-size: 20px" id="country">
                     </p>
                 </div>
                 <div class="row mt-4">
-                    <h4 class="lead"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;Auction End Date:
-                        &nbsp; &nbsp;</h4>
-                    <h4 class="lead">20 July Saturday 2019</h4>
+                    <h4 class="lead"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;Manufacture Date:
+                        &nbsp; &nbsp;
+                    </h4>
+                    <h4 class="lead" id="year"></h4>
 
 
                 </div>
@@ -139,8 +142,12 @@
                 </div>
 
                 <div class="row mt-4">
-                    <h4>Seller: &nbsp; &nbsp;</h4>
-                    <p style="font-size: 18px">G.M Garments </p>
+                    <h4>Type: &nbsp; &nbsp;</h4>
+                    <p style="font-size: 18px" id="type"></p>
+                </div>
+                <div class="row mt-4">
+                    <h4>Product Condition: &nbsp; &nbsp;</h4>
+                    <p style="font-size: 18px" id="condition"></p>
                 </div>
             </div>
         </div>

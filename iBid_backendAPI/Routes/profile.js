@@ -71,4 +71,17 @@ router.get('/this', Auth, function (req, res) {
     res.send(req.user);
     console.log(req.user);
 })
+router.get('/getUserForAdmin', function (req, res) {
+    Profile.find().then(function (user) {
+        res.send(user);
+    }).catch(function (e) {
+        res.send(e)
+    });
+});
+
+router.delete('/delete-user/:id', function (req, res) {
+    Profile.findByIdAndDelete(req.params.id).then(function () {
+    }).catch(function () {
+    })
+});
 module.exports = router;

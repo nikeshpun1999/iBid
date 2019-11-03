@@ -7,6 +7,7 @@ const Auth = require('../Middleware/auth');
 const path = require("path");
 
 const multer = require("multer");
+router.use('/images', express.static('./images'));
 // var ImageNamee = '';
 var storage = multer.diskStorage({
     destination: "images",
@@ -25,7 +26,7 @@ var imageFileFilter = (req, file, cb) => {
 
 var upload = multer({ storage: storage, fileFilter: imageFileFilter, limits: { fileSize: 1000000 } });
 
-router.post('/uploadimg', upload.single('upload'), (req, res) => {
+router.post('/uploadimg', upload.single('imageFile'), (req, res) => {
     // res.json({ Filename: req.file.filename });
     res.json(req.file.filename);
     console.log(req.file.filename)
@@ -34,24 +35,31 @@ router.post('/uploadimg', upload.single('upload'), (req, res) => {
 router.post("/registerauction", (req, res) => {
 
     currenttime = Date();
+    var auctionImgName = req.body.auctionImgname;
+    var title = req.body.title;
+    var shippingCost = req.body.shippingCost;
+    var country = req.body.country;
+    var type = req.body.type;
+    var condition = req.body.condition;
+    var year = req.body.year;
 
     const auction = new Auction({
-
-        title: req.body.title,
-        shippingCost: req.body.shippingCost,
+        'auctionImgName': auctionImgName,
+        'title': title,
+        'shippingCost': shippingCost,
         // sellerName: req.body.sellername,
-        country: req.body.country,
-        year: req.body.year,
-        type: req.body.type,
-        condition: req.body.condition,
-        auctionIssuetime: currenttime,
-        auctionEndtime: currenttime + 4,
-        deliveryDate: currenttime + 11,
-        userId: req.body.userId,
+        'country': country,
+        'year': year,
+        'type': type,
+        'condition': condition
+        //auctionIssuetime: currenttime,
+        //auctionEndtime: currenttime + 4,
+        //deliveryDate: currenttime + 11,
+        //userId: req.body.userId,
         // auctionissuetime: req.body.auctionissuetime,
         // auctionendtime: req.body.auctionendtime,
         // deliverdate: currenttime,
-        auctionImgName: storage
+
     })
     auction.save()
         .then(result => {

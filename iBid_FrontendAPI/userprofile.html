@@ -5,18 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--===============================================================================================-->
     <title>Profile</title>
+    <link href="/style/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/js/bootstrap.min.js"></script>
     <link href="style/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="style/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
     <link href="style/style2.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Chilanka|Pacifico|Saira+Stencil+One&display=swap"
+        rel="stylesheet">
+    <script src="/jquery/jquery-3.3.1.js"></script>
 
 
 </head>
@@ -62,7 +61,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="images/profile.jpeg" alt="" />
+                        <img alt="abc" />
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
                             <input type="file" name="file" />
@@ -72,7 +71,7 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h3 class="display-4">
-                            Prakash Bista
+
                         </h3>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -99,7 +98,8 @@
                                     <label>User Id</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>prakash20ta</p>
+
+                                    <label id="ID_user"></label>
                                 </div>
                             </div>
                             <div class="row">
@@ -107,7 +107,8 @@
                                     <label>First Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Prakash</p>
+                                    <input class="input100" type="text" name="FirstName" id="FirstName"
+                                        placeholder="First name" required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
@@ -115,7 +116,8 @@
                                     <label>Middle Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>-------------</p>
+                                    <input class="input100" type="text" name="MiddleName" id="MiddleName"
+                                        placeholder="Middle name" required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
@@ -123,7 +125,8 @@
                                     <label>Last Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Bista</p>
+                                    <input class="input100" type="text" name="LastName" id="LastName"
+                                        placeholder="Last name" required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
@@ -131,15 +134,17 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>bigpapa@gmail.com</p>
+                                    <input class="input100" type="text" name="Email" id="Email" placeholder="Email"
+                                        required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Contact Details</label>
+                                    <label>About Me</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>+977 9876535411</p>
+                                    <input class="input100" type="text" name="About" id="About" placeholder="About"
+                                        required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
@@ -147,7 +152,8 @@
                                     <label>Address</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Uttarganga, Surkhet</p>
+                                    <input class="input100" type="text" name="Address" id="Address"
+                                        placeholder="Address" required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
@@ -155,7 +161,8 @@
                                     <label>Date of Birth</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>06-06-1997</p>
+                                    <input class="input100" type="date" name="dob" id="dob" placeholder="dob" required
+                                        tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
@@ -168,18 +175,20 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>About Me</label>
+                                    <label>Username</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Uttarganga ko Kaji</p>
+                                    <input class="input100" type="text" name="username" id="Username"
+                                        placeholder="username" required tabindex="6">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Username</label>
+                                    <label>Password</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>bigPapa66</p>
+                                    <input class="input100" type="text" name="password" id="Password"
+                                        placeholder="password" required tabindex="6">
                                 </div>
                             </div>
                         </div>
@@ -188,8 +197,9 @@
             </div>
         </form>
     </div>
-
 </body>
+
+<script type="text/javascript" src="js/updateProfile.js"></script>
 <footer>
     <div class="container-fluid footer bg-dark mt-1">
         <div class="row">
