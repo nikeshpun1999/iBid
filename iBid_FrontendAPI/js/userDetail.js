@@ -19,8 +19,7 @@ $(document).ready(function () {
 
 
     $('#showUser').on('click', '#delete', function () {
-        alert("Successfully deleted!!")
-        location.href = 'bidders.html';
+
         id = $(this).val();
         //alert(id);
         $.ajax({
@@ -30,6 +29,8 @@ $(document).ready(function () {
             data: id,
             success: function (data, textStatus, xhr) {
                 console.log(data);
+                alert("Successfully deleted!!")
+                location.reload = 'bidders.html';
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log('Error in Operation');
@@ -41,23 +42,41 @@ $(document).ready(function () {
 
         id = $(this).val();
 
-
-
         $.ajax({
-            url: 'http://localhost:5500/profiles/addcredit/' + id,
-            type: 'POST',
+            url: 'http://localhost:5500/profiles/getuserdata/' + id,
+            type: 'GET',
             success: function (res, textStatus, xhr) {
                 console.log(res);
-                alert("Credit Added");
-                location.href = "bidders.html";
+                alert("user fetched");
+                alert(res.credit);
 
+
+                var data1 = res.credit;
+                $.ajax({
+                    url: 'http://localhost:5500/profiles/addcredit/' + id + '/' + data1,
+                    type: 'POST',
+
+                    success: function (res, textStatus, xhr) {
+                        console.log(res);
+                        alert("Credit Added");
+                        location.href = "bidders.html";
+
+
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+
+                    }
+                });
 
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log('Error in Operation');
+                alert("error")
 
             }
         });
+
     });
 
 });

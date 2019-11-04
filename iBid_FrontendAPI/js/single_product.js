@@ -22,9 +22,11 @@ $(document).ready(function () {
             $('#type').text(auction.type);
             $('#condition').text(auction.condition);
             $('#year').text(auction.year);
-            var imagelink = "";
-            imagelink += '<img height="570px" width="388px" src="http://localhost:5500/images/' + auction.auctionImgName + '"+ alt=""';
-            $('#showImage').html(imagelink);
+            $('#showAuctionImage').attr('src', 'http://localhost:5500/images/' + auction.auctionImgName)
+
+            //var imagelink = "";
+            //imagelink += '<img height="570px" width="388px" src="http://localhost:5500/images/' + auction.auctionImgName + '"+ alt=""';
+            // $('#showImage').html(imagelink);
 
             // alert("what?")
             // alert(recipe.Uid);

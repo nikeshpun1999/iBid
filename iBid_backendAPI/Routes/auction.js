@@ -120,6 +120,22 @@ router.get('/getsimilarauction/:id', function (req, res) {
     });
 });
 
+router.delete('/delete-auction/:id', function (req, res) {
+    Auction.findByIdAndDelete(req.params.id).then(function (e) {
+        console.log("I m here...............")
+        res.send(e);
+    }).catch(function () {
+    })
+});
+
+router.get('/all', function (req, res) {
+    Auction.find().then(function (auction) {
+        res.send(auction);
+    }).catch(function (e) {
+        res.send(e)
+    });
+});
+
 
 
 

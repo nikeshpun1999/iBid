@@ -80,12 +80,14 @@ router.get('/getUserForAdmin', function (req, res) {
     });
 });
 
-router.post('/addcredit/:id', function (req, res) {
+router.post('/addcredit/:id/:credit', function (req, res) {
     uid = req.params.id.toString();
     console.log("here")
     console.log(uid);
+    var credit = parseInt(req.params.credit.toString());
 
-    Profile.findByIdAndUpdate(uid, { $set: { "credit": +500 } }, { new: true })
+
+    Profile.findByIdAndUpdate(uid, { $set: { "credit": credit + 500 } }, { new: true })
         .then(function (user) {
             res.json(user);
         })
