@@ -70,7 +70,7 @@ $(document).ready(function () {
                         url: 'http://localhost:5500/bids/auctionwinner/' + auctionid + '/' + bidamount,
 
                         success: function (res, textStatus, xhr) {
-                            res.json(bidamount)
+                            //res.json(bidamount)
                             alert("Winner picked")
 
 
