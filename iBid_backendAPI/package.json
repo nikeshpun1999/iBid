@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nikeshpun1999/iBid_backendAPI#readme",
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "moment": "^2.24.0"
   }
 }

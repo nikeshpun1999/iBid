@@ -111,4 +111,10 @@ router.get('/getuserdata/:id', function (req, res) {
         res.send(e)
     });
 });
+router.put('/updateprofile/:id', Auth, function (req, res) {
+    console.log(req.body);
+    Profile.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, profile) => {
+        res.send("succesfull");
+    });
+});
 module.exports = router;

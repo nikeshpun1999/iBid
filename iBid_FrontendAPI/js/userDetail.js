@@ -30,7 +30,7 @@ $(document).ready(function () {
             success: function (data, textStatus, xhr) {
                 console.log(data);
                 alert("Successfully deleted!!")
-                location.reload = 'bidders.html';
+                location.reload();
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log('Error in Operation');
@@ -47,8 +47,8 @@ $(document).ready(function () {
             type: 'GET',
             success: function (res, textStatus, xhr) {
                 console.log(res);
-                alert("user fetched");
-                alert(res.credit);
+                //  alert("user fetched");
+                //alert(res.credit);
 
 
                 var data1 = res.credit;
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
                     success: function (res, textStatus, xhr) {
                         console.log(res);
-                        alert("Credit Added");
+                        //   alert("Credit Added");
                         location.href = "bidders.html";
 
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log('Error in Operation');
-                alert("error")
+                //   alert("error")
 
             }
         });

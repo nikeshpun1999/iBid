@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const likeSchema = mongoose.Schema({
 
-    auctionId: {
+    auctionID: {
         type: String
     },
     userId: {
@@ -10,6 +10,10 @@ const likeSchema = mongoose.Schema({
 
     bidamount: {
         type: Number
+    },
+    status:
+    {
+        type: String
     }
 
 });

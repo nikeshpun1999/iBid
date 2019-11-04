@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    alert("hello");
+    //alert("hello");
     $.getJSON('http://localhost:5500/auctions/all', function (res) {
         console.log(res);
         $.each(res, function (index) {

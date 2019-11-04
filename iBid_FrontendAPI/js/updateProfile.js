@@ -4,6 +4,7 @@ $(document).ready(function () {
     console.log(tok);
     var id;
     var FirstName;
+    var MiddleName;
     var LastName;
     var Address;
     var PhNumber;
@@ -59,6 +60,7 @@ $(document).ready(function () {
             //profilePicture = imageFile;
             id = data._id;
             FirstName = data.FirstName;
+            MiddleName = data.MiddleName;
             LastName = data.LastName;
             Address = data.Address;
             PhNumber = data.PhNumber;
@@ -68,9 +70,9 @@ $(document).ready(function () {
 
             console.log(id);
 
-            $('#showImage').append(
-                '<img src="http://localhost:3000/imageProfile/' + data.profilePicture + '" width="200" height="150">');
-            $('#username').append('<div class="text-bold text-success p-2"' + '<li>' + 'Mr.' + user.firstname + '</li>' + '</div>');
+            // $('#showImage').append(
+            //     '<img src="http://localhost:3000/imageProfile/' + data.profilePicture + '" width="200" height="150">');
+            // $('#username').append('<div class="text-bold text-success p-2"' + '<li>' + 'Mr.' + user.firstname + '</li>' + '</div>');
         },
         error: function () {
             alert("Sorry, you are not logged in.");
@@ -80,30 +82,34 @@ $(document).ready(function () {
     $("#update_profile").click(function (e) {
         e.preventDefault();
         var FirstName = $("#FirstName").val();
+        var MiddleName = $("#MiddleName").val();
         var LastName = $("#LastName").val();
+        var About = $("#About").val();
         var Address = $("#Address").val();
-        var PhNumber = $("#PhNumber").val();
+        var dob = $("#dob").val();
         var Email = $("#Email").val();
-        var Usertype = $("#Usertype").val();
+        var Username = $("#Username").val();
         var Password = $("#Password").val();
         var data = {
-            "profilePicture": imageFile,
+            //"profilePicture": imageFile,
             "firstname": FirstName,
+            "middlename": MiddleName,
             "lastname": LastName,
+            "about": About,
             "address": Address,
-            "phone": PhNumber,
+            "dob": dob,
             "email": Email,
-            "usertype": Usertype,
+            "username": Username,
             "password": Password
         };
         console.log(data);
 
         $.ajax({
             type: "PUT",
-            url: "http://localhost:3000/updateprofile",
+            url: "http://localhost:5500/profiles/updateprofile/" + id,
             data: data,
             success: function (result) {
-                Location.href = "home.html";
+                // Location.href = "home.html";
                 alert(result);
 
             },

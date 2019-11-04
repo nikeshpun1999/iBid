@@ -1,7 +1,7 @@
 $(document).ready(function () {
-
+    var auctionid = "";
     var auctioneach = new Array();
-
+    var auctioneach2 = new Array();
     var urlParams = new URLSearchParams(window.location.search);
     console.log(urlParams.get("id"));
     // alert("this");
@@ -12,6 +12,7 @@ $(document).ready(function () {
         type: 'GET',
         url: 'http://localhost:5500/auctions/getselectedauction/' + id,
         success: function (auction) {
+            auctionid = auction._id;
             console.log("here");
             console.log(auction.auctionImgName);
             // alert(recipe.RecipeName);
@@ -22,7 +23,12 @@ $(document).ready(function () {
             $('#type').text(auction.type);
             $('#condition').text(auction.condition);
             $('#year').text(auction.year);
-            $('#showAuctionImage').attr('src', 'http://localhost:5500/images/' + auction.auctionImgName)
+            $('#showAuctionImage').attr('src', 'http://localhost:5500/images/' + auction.auctionImgName);
+            $('#status').text(auction.progress);
+            if (auction.progress == "Closed") {
+
+                $('#bidsbtn').attr('class', '');
+            }
 
             //var imagelink = "";
             //imagelink += '<img height="570px" width="388px" src="http://localhost:5500/images/' + auction.auctionImgName + '"+ alt=""';
@@ -31,7 +37,58 @@ $(document).ready(function () {
             // alert("what?")
             // alert(recipe.Uid);
             //  alert(recipe.RecipeImgName);
+            $.ajax({
 
+                type: 'GET',
+                url: 'http://localhost:5500/bids/allclosed/' + auctionid,
+
+                success: function (auctioncmt) {
+                    console.log("this is it");
+                    console.log(auctioncmt)
+
+
+
+                    var bidamount = 0;
+                    auctioneach2.push(auctioncmt);
+                    $.each(auctioncmt, function (index) {
+                        // var userid = recipeeach[index].UserId;
+                        //console.log(auctioncmt[index].userId);
+                        alert(auctioncmt[index].bidamount)
+
+                        // for (key = 0; key < result.length; key++) {
+                        if (auctioncmt[index].bidamount > bidamount) {
+                            bidamount = auctioncmt[index].bidamount
+                        }
+                    })
+
+                    var data = {
+                        "bidamount": bidamount
+                    }
+                    alert(bidamount);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:5500/bids/auctionwinner/' + auctionid + '/' + bidamount,
+
+                        success: function (res, textStatus, xhr) {
+                            res.json(bidamount)
+                            alert("Winner picked")
+
+
+
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log('Error in Operation');
+                            // alert("Login denied");
+
+                        }
+                    });
+
+
+
+
+
+                }
+            })
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:5500/auctions/getsimilarauction/' + auction.type,
@@ -178,6 +235,10 @@ $(document).ready(function () {
         }
     })
 
+
+
+
+
     $("#commentbtn").click(function (e) {
         e.preventDefault();
         //var formData = new FormData(this);
@@ -198,7 +259,7 @@ $(document).ready(function () {
 
 
 
-                var auctionID = id;
+                var auctionID = auctionid;
                 // console.log(Recipeid);
                 var userId = userId;
                 var rate = $("#rate").val();

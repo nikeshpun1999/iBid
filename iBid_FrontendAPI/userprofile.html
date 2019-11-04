@@ -57,37 +57,22 @@
         </div>
     </nav>
     <div class="container emp-profile">
-        <form method="post">
+        <form method="post" class="form register" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="profile-img">
-                        <img alt="abc" />
-                        <div class="file btn btn-lg btn-primary">
+
+                        <div class="file ml-5">
                             Change Photo
                             <input type="file" name="file" />
+                            <img id="showImage" alt="abc" />
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h3 class="display-4">
+                <br />
+                <br />
 
-                        </h3>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">About</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <a href="updateprofile.html">
-                        <button class=" profile-edit-btn">
-                            Edit Profile
-                        </button>
-                    </a>
-                </div>
+
             </div>
             <div class="row">
                 <div class="col-md-10 ml-5">
@@ -190,6 +175,13 @@
                                     <input class="input100" type="text" name="password" id="Password"
                                         placeholder="password" required tabindex="6">
                                 </div>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="updateprofile.html">
+                                    <button id="update_profile" class="btn-primary profile-edit-btn">
+                                        Edit Profile
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
