@@ -14,7 +14,6 @@ $(document).ready(function () {
 			url: 'http://localhost:5500/profiles/login',
 			data: data,
 			success: function (res, textStatus, xhr) {
-				alert(res.token);
 				if (res.token != null) {
 					localStorage.setItem("token", res.token)
 					alert("Logged in Successfully")
