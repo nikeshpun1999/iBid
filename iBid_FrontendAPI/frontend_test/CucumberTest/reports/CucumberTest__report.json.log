@@ -1,0 +1,356 @@
+{
+  "feature": {
+    "uri": "logintest.feature",
+    "description": "<feature description>",
+    "keyword": "Feature",
+    "name": "<Feature Name>",
+    "line": 1,
+    "id": "<feature-name>",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "logintest.feature",
+    "id": "<feature-name>;<user-login>",
+    "keyword": "Scenario",
+    "line": 4,
+    "name": "<User Login>",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 5854,
+      "status": "ambiguous",
+      "exception": "Multiple step definitions match:\n  /^Browse to web site  \"([^\"]*)\"$/ - ..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:6   \n  /^Browse to web site  \"([^\"]*)\"$/ - ..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:6"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\support\\hooks.js:7"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 5,
+        "name": "Browse to web site  \"file:///E:/Agile%20project%20final/iBid/iBid_FrontendAPI/index.html\"",
+        "result": {
+          "status": "ambiguous"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "When ",
+        "line": 6,
+        "name": "user click to link login",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:11"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 7,
+        "name": "user input username \"username\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:16"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 8,
+        "name": "user input password \"password\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:22"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 9,
+        "name": "click to login button",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:28"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 10,
+        "name": "user get an notification \"Login Sucessfull\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:33"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\support\\hooks.js:11"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 5853000000
+        },
+        "embeddings": [
+          {
+            "data": "file://CucumberTest__report/1.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
+    "uri": "registertest.feature",
+    "description": "<When user try to sign up with all valid fields and click on the sign up button>",
+    "keyword": "Feature",
+    "name": "<User Registration test>",
+    "line": 1,
+    "id": "<user-registration-test>",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "registertest.feature",
+    "id": "<user-registration-test>;<user-registration>",
+    "keyword": "Scenario",
+    "line": 4,
+    "name": "<User Registration>",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 270,
+      "status": "ambiguous",
+      "exception": "Multiple step definitions match:\n  /^Browse to web site  \"([^\"]*)\"$/ - ..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:6   \n  /^Browse to web site  \"([^\"]*)\"$/ - ..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:6"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\support\\hooks.js:7"
+        },
+        "result": {
+          "status": "passed"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 5,
+        "name": "Browse to web site  \"file:///E:/Agile%20project%20final/iBid/iBid_FrontendAPI/index.html\"",
+        "result": {
+          "status": "ambiguous"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "When ",
+        "line": 6,
+        "name": "user click to link register",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:11"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 7,
+        "name": "user input firstname \"Aashish\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:16"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 8,
+        "name": "user input Middle Name \"\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:23"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 9,
+        "name": "user input Last Name \"Aryal\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:30"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 10,
+        "name": "user input contact details \"9855555555\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:37"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 11,
+        "name": "user input Address \"Kathmandu\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:44"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 12,
+        "name": "user input Date \"12/12/1995\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:51"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 13,
+        "name": "user input email \"Ar@gmail.com\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:58"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 14,
+        "name": "user input gender \"male\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:65"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 15,
+        "name": "user input about \"personal details\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:72"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 16,
+        "name": "user input username \"aashish12\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:16"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 17,
+        "name": "user input password \"password\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\logintest.js:22"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "user input confirm password \"password\"",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:79"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 19,
+        "name": "click to registration button",
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\step_definitions\\registertest.js:86"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "..\\final\\iBid\\iBid_FrontendAPI\\frontend_test\\CucumberTest\\features\\support\\hooks.js:11"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 270000000
+        },
+        "embeddings": [
+          {
+            "data": "file://CucumberTest__report/2.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}
