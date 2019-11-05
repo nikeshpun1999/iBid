@@ -17,7 +17,11 @@ $(document).ready(function () {
 			success: function (res, textStatus, xhr) {
 				if (res.token != null) {
 					localStorage.setItem("token", res.token)
+<<<<<<< HEAD
 					alert("Logged in Successfully")
+=======
+					// alert("Logged in Successfully")
+>>>>>>> 1bda14130b5e73d0b8669c08072e171b241fb209
 					if (res.user.userType == "Admin") {
 						location.href = "admin_dashboard.html";
 					}
@@ -35,5 +39,5 @@ $(document).ready(function () {
 		});
 	});
 	//var tok = localStorage.getItem('token');
-	//alert(tok)		
+	//alert(tok)
 });

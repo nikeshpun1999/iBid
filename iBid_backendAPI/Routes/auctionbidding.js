@@ -22,7 +22,6 @@ router.post('/bidonauction', (req, res) => {
 
             'userId': userid,
             'bidamount': bidamount,
-            'status': "not decided"
 
         }
     );
@@ -40,6 +39,7 @@ router.post('/bidonauction', (req, res) => {
 
 })
 
+<<<<<<< HEAD
 router.get('/allclosed/:id', function (req, res) {
     uid = req.params.id.toString();
     Bid.find({ "auctionID": uid }).then(function (auction) {
@@ -81,5 +81,7 @@ router.get('/getselectedauctionwinner/:id', function (req, res) {
 
 
 
+=======
+>>>>>>> 1bda14130b5e73d0b8669c08072e171b241fb209
 
 module.exports = router;

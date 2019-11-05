@@ -1,5 +1,9 @@
 $(document).ready(function () {
     var tok = localStorage.getItem("token");
+<<<<<<< HEAD
+=======
+    //alert(tok);
+>>>>>>> 1bda14130b5e73d0b8669c08072e171b241fb209
     console.log(tok);
     var id;
     var FirstName;
@@ -53,7 +57,7 @@ $(document).ready(function () {
             $("#Address").val(data.address);
             $("#dob").val(new Date(data.dob).toISOString().split('T')[0]);
             $("#Email").val(data.email);
-            $("#Username").val(data.username);
+            $("#username").val(data.username);
             $("#Password").val(data.password);
 
             //profilePicture = imageFile;
@@ -87,7 +91,7 @@ $(document).ready(function () {
         var Address = $("#Address").val();
         var dob = $("#dob").val();
         var Email = $("#Email").val();
-        var Username = $("#Username").val();
+        var username = $("#username").val();
         var Password = $("#Password").val();
         var data = {
             //"profilePicture": imageFile,
@@ -98,7 +102,7 @@ $(document).ready(function () {
             "address": Address,
             "dob": dob,
             "email": Email,
-            "username": Username,
+            "username": username,
             "password": Password
         };
         console.log(data);

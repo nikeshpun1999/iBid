@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -19,6 +19,15 @@
   "homepage": "https://github.com/nikeshpun1999/iBid_backendAPI#readme",
   "dependencies": {
     "cors": "^2.8.5",
+<<<<<<< HEAD
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.7",
+    "multer": "^1.4.2"
+=======
+    "jest": "^24.9.0",
     "moment": "^2.24.0"
+>>>>>>> f9232a4cb734b9a31c46d7ed21f791e592d803e6
   }
 }
