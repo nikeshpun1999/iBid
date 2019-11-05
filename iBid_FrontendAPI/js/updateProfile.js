@@ -54,7 +54,7 @@ $(document).ready(function () {
             $("#Address").val(data.address);
             $("#dob").val(data.dob);
             $("#Email").val(data.email);
-            $("#Username").val(data.username);
+            $("#username").val(data.username);
             $("#Password").val(data.password);
 
             //profilePicture = imageFile;
@@ -88,7 +88,7 @@ $(document).ready(function () {
         var Address = $("#Address").val();
         var dob = $("#dob").val();
         var Email = $("#Email").val();
-        var Username = $("#Username").val();
+        var username = $("#username").val();
         var Password = $("#Password").val();
         var data = {
             //"profilePicture": imageFile,
@@ -99,7 +99,7 @@ $(document).ready(function () {
             "address": Address,
             "dob": dob,
             "email": Email,
-            "username": Username,
+            "username": username,
             "password": Password
         };
         console.log(data);

@@ -23,8 +23,7 @@ When(/^redirected to  site  "([^"]*)"$/, async function (url) {
     await driver.get(url);
 });
 
-When(/^user input username"([^"]*)"$/, async function (arg1) {
-
+When(/^user input username "([^"]*)"$/, async function (arg1) {
     await driver.sleep(1000);
     return driver.findElement({ id: username }).sendKeys(username);
 });

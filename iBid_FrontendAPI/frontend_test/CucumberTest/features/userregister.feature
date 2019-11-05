@@ -7,4 +7,4 @@ Feature: <Feature Name>
     And user input username  "username"
     And user input password "password"
     Then click to reigister button
-    And user get an notification "Login Sucessfull"
+    And a notification  is displayed to user "Registration Sucessfully"

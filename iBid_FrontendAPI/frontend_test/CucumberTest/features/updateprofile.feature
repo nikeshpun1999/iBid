@@ -9,6 +9,6 @@ Feature: <Update user profile>
     And click to login button
     And redirected to  site  "E:\Agile project final\iBid\iBid_FrontendAPI/index.html"
     And User Browser to webpage link update profile
-    When user input username "username"
+    When user change username as "username12"
     And User click to Edit profile button
     Then User must get notification "Sucessful"
