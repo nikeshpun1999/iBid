@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var tok = localStorage.getItem("token");
-    alert(tok);
+    //alert(tok);
     console.log(tok);
     var id;
     var FirstName;

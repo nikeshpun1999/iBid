@@ -16,8 +16,8 @@ $(document).ready(function () {
 			success: function (res, textStatus, xhr) {
 				if (res.token != null) {
 					localStorage.setItem("token", res.token)
-					alert("Logged in Successfully")
-					if (res.user.userype == "Admin") {
+					// alert("Logged in Successfully")
+					if (res.user.userType == "Admin") {
 						location.href = "admin_dashboard.html";
 					}
 					else {
@@ -34,5 +34,5 @@ $(document).ready(function () {
 		});
 	});
 	//var tok = localStorage.getItem('token');
-	//alert(tok)		
+	//alert(tok)
 });
