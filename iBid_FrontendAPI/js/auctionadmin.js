@@ -9,8 +9,6 @@ $(document).ready(function () {
                 + "<td>" + res[index].type + "</td>" + "<td>" + res[index].condition + "</td>"
 
                 + '<td>' + '<img src="http://localhost:5500/images/' + res[index].auctionImgName + '" width="150" height="100">' + '</td>'
-                + '<td>'
-                + '</tr>'
                 + '<td><button id="delete" type="submit" class="btn btn-lg btn-primary" value="' + res[index]._id
                 + '">Delete</button></td>' + '</tr>');
 

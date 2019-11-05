@@ -63,6 +63,20 @@ router.post('/auctionwinner/:auctionid/:bidamount', function (req, res) {
     });
 });
 
+router.get('/getselectedauctionwinner/:id', function (req, res) {
+    uid = req.params.id.toString();
+    console.log("uid")
+    console.log(uid);
+    Bid.findOne({ auctionID: uid, "status": "winner" }).then(function (auction) {
+        res.send(auction);
+        console.log("winner winner chicken dinner");
+        console.log(auction)
+
+    }).catch(function (e) {
+        res.send(e)
+    });
+});
+
 
 
 

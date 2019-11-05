@@ -117,4 +117,14 @@ router.put('/updateprofile/:id', Auth, function (req, res) {
         res.send("succesfull");
     });
 });
+router.post('/logout', Auth, async (req, res) => {
+    try {
+        req.Profile.tokens = [];
+        await req.Profile.save();
+        res.send();
+    }
+    catch (e) {
+        res.status(500).send();
+    }
+});
 module.exports = router;

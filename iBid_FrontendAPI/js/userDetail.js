@@ -8,8 +8,7 @@ $(document).ready(function () {
                 + "<td>" + res[index].gender + "</td>" + "<td>" + res[index].username + "</td>"
                 + '<td>' + '<img src="http://localhost:5500/images/' + res[index].profilepic + '" width="150" height="100">' + '</td>'
                 + '<td>'
-                + '<button class="btn btn-primary" value=' + res[index]._id + ' id="credit" type="submit">Add 500 credit</a>'
-                + '</td>' + '</tr>'
+                + '<button class="btn btn-primary" value=' + res[index]._id + ' id="credit" type="submit">Add 500 credit</a>' + '</td>'
                 + '<td><button id="delete" type="submit" class="btn btn-lg btn-primary" value="' + res[index]._id
                 + '">Delete</button></td>' + '</tr>');
 

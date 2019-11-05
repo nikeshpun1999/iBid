@@ -9,6 +9,7 @@ $(document).ready(function () {
 			"password": Password
 		}
 		//alert("clicked");
+
 		$.ajax({
 			type: 'post',
 			url: 'http://localhost:5500/profiles/login',
@@ -17,7 +18,7 @@ $(document).ready(function () {
 				if (res.token != null) {
 					localStorage.setItem("token", res.token)
 					alert("Logged in Successfully")
-					if (res.user.userype == "Admin") {
+					if (res.user.userType == "Admin") {
 						location.href = "admin_dashboard.html";
 					}
 					else {

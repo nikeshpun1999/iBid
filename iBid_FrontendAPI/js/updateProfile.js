@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var tok = localStorage.getItem("token");
-    alert(tok);
     console.log(tok);
     var id;
     var FirstName;
@@ -52,7 +51,7 @@ $(document).ready(function () {
             $("#LastName").val(data.lastname);
             $("#About").val(data.about);
             $("#Address").val(data.address);
-            $("#dob").val(data.dob);
+            $("#dob").val(new Date(data.dob).toISOString().split('T')[0]);
             $("#Email").val(data.email);
             $("#Username").val(data.username);
             $("#Password").val(data.password);
@@ -63,7 +62,7 @@ $(document).ready(function () {
             MiddleName = data.MiddleName;
             LastName = data.LastName;
             Address = data.Address;
-            PhNumber = data.PhNumber;
+            dob = data.dob;
             Email = data.Email;
             Usertype = data.Usertype;
             Password = data.Password;
@@ -76,7 +75,7 @@ $(document).ready(function () {
         },
         error: function () {
             alert("Sorry, you are not logged in.");
-            location.href = "../login.html";
+            location.href = "./login.html";
         }
     });
     $("#update_profile").click(function (e) {
@@ -121,26 +120,5 @@ $(document).ready(function () {
         });
 
     });
-
-    // for logging out
-    // $("#logout").click(function () {
-    //     $.ajax({
-    //         type: 'post',
-    //         url: 'http://localhost:3000/users/logout',
-    //         beforeSend: function (xhr) {
-    //             if (tok) {
-    //                 xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
-    //             }
-    //         },
-    //         success: function (data) {
-    //             location.href = "../login.html";
-
-    //         },
-
-    //         error: function () {
-    //             location.href = "../login.html";
-    //         }
-    //     });
-    // });
 
 });

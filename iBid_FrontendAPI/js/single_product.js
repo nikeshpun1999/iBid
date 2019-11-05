@@ -28,67 +28,68 @@ $(document).ready(function () {
             if (auction.progress == "Closed") {
 
                 $('#bidsbtn').attr('class', '');
-            }
-
-            //var imagelink = "";
-            //imagelink += '<img height="570px" width="388px" src="http://localhost:5500/images/' + auction.auctionImgName + '"+ alt=""';
-            // $('#showImage').html(imagelink);
-
-            // alert("what?")
-            // alert(recipe.Uid);
-            //  alert(recipe.RecipeImgName);
-            $.ajax({
-
-                type: 'GET',
-                url: 'http://localhost:5500/bids/allclosed/' + auctionid,
-
-                success: function (auctioncmt) {
-                    console.log("this is it");
-                    console.log(auctioncmt)
 
 
+                //var imagelink = "";
+                //imagelink += '<img height="570px" width="388px" src="http://localhost:5500/images/' + auction.auctionImgName + '"+ alt=""';
+                // $('#showImage').html(imagelink);
 
-                    var bidamount = 0;
-                    auctioneach2.push(auctioncmt);
-                    $.each(auctioncmt, function (index) {
-                        // var userid = recipeeach[index].UserId;
-                        //console.log(auctioncmt[index].userId);
-                        alert(auctioncmt[index].bidamount)
+                // alert("what?")
+                // alert(recipe.Uid);
+                //  alert(recipe.RecipeImgName);
+                $.ajax({
 
-                        // for (key = 0; key < result.length; key++) {
-                        if (auctioncmt[index].bidamount > bidamount) {
-                            bidamount = auctioncmt[index].bidamount
+                    type: 'GET',
+                    url: 'http://localhost:5500/bids/allclosed/' + auctionid,
+
+                    success: function (auctioncmt) {
+                        console.log("this is it");
+                        console.log(auctioncmt)
+
+
+
+                        var bidamount = 0;
+                        auctioneach2.push(auctioncmt);
+                        $.each(auctioncmt, function (index) {
+                            // var userid = recipeeach[index].UserId;
+                            //console.log(auctioncmt[index].userId);
+                            //   alert(auctioncmt[index].bidamount)
+
+                            // for (key = 0; key < result.length; key++) {
+                            if (auctioncmt[index].bidamount > bidamount) {
+                                bidamount = auctioncmt[index].bidamount
+                            }
+                        })
+
+                        var data = {
+                            "bidamount": bidamount
                         }
-                    })
+                        //  alert(bidamount);
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http://localhost:5500/bids/auctionwinner/' + auctionid + '/' + bidamount,
 
-                    var data = {
-                        "bidamount": bidamount
+                            success: function (res, textStatus, xhr) {
+                                //res.json(bidamount)
+                                //    alert("Winner picked")
+
+
+
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                console.log('Error in Operation');
+                                // alert("Login denied");
+
+                            }
+                        });
+
+
+
+
+
                     }
-                    alert(bidamount);
-                    $.ajax({
-                        type: 'POST',
-                        url: 'http://localhost:5500/bids/auctionwinner/' + auctionid + '/' + bidamount,
-
-                        success: function (res, textStatus, xhr) {
-                            //res.json(bidamount)
-                            alert("Winner picked")
-
-
-
-                        },
-                        error: function (xhr, textStatus, errorThrown) {
-                            console.log('Error in Operation');
-                            // alert("Login denied");
-
-                        }
-                    });
-
-
-
-
-
-                }
-            })
+                })
+            }
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:5500/auctions/getsimilarauction/' + auction.type,
@@ -234,6 +235,37 @@ $(document).ready(function () {
 
         }
     })
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:5500/bids/getselectedauctionwinner/' + id,
+
+        success: function (aucwinner) {
+            console.log("auctioncmt");
+
+            console.log(aucwinner)
+            console.log("auctioneer")
+            console.log(aucwinner.userId)
+            //     alert(id);
+
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:5500/profiles/getuserdata/' + aucwinner.userId,
+                success: function (user) {
+                    //       alert("hereeeee" + recipe.Uid)
+                    console.log(user);
+
+                    $('#winnername').text(user.firstname);
+                }
+            })
+
+
+
+
+
+
+
+        }
+    })
 
 
 
@@ -306,6 +338,8 @@ $(document).ready(function () {
         //var formData = new FormData(this);
         var tok = localStorage.getItem('token');
         var likeuid = "";
+        var bidamounts = $("#bid").val();
+        //  alert(bidamounts);
         //alert(tok)
         $.ajax({
             type: "GET",
@@ -315,25 +349,31 @@ $(document).ready(function () {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
                 }
             }, success: function (data) {
+                //  alert(data.credit);
+                if (data.credit > bidamounts) {
+                    //alert(data._id);
+                    userId = data._id;
 
-                //alert(data._id);
-                userId = data._id;
 
 
+                    var auctionID = id;
+                    // console.log(Recipeid);
+                    var userId = userId;
+                    var bidamount = bidamounts;
 
-                var auctionID = id;
-                // console.log(Recipeid);
-                var userId = userId;
-                var bidamount = $("#bid").val();
+                    var data2 = {
+                        'auctionID': auctionID,
+                        'userId': userId,
+                        'bidamount': bidamount
 
-                var data2 = {
-                    'auctionID': auctionID,
-                    'userId': userId,
-                    'bidamount': bidamount
-
+                    }
+                    console.log(data2)
+                    alert("Your bid is saved")
                 }
-                console.log(data2)
-
+                else {
+                    alert("you dont have enough balance")
+                    data2 = {};
+                }
                 $.ajax({
                     url: 'http://localhost:5500/bids/bidonauction',
                     type: 'POST',
@@ -345,7 +385,7 @@ $(document).ready(function () {
 
                     success: function (res, textStatus, xhr) {
                         console.log(res);
-                        alert("Bid saved !!!");
+                        // alert("Bid saved !!!");
                         location.reload();
 
 
